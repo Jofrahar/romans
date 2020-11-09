@@ -12,7 +12,7 @@ public class Romans {
     private static InputStream inputStream = System.in;
     private static OutputStream outputStream = System.out;
 
-    private static final Map<Integer, String> SINGLES = Map.of(1, "I", 2, "II", 3, "III", 4, "IV", 5, "V", 6, "VI", 7,
+    private static final Map<Integer, String> UNITS = Map.of(1, "I", 2, "II", 3, "III", 4, "IV", 5, "V", 6, "VI", 7,
             "VII", 8, "VIII", 9, "IX");
 
     private static final Map<Integer, String> TENS = Map.of(10, "X", 20, "XX", 30, "XXX", 40, "XL", 50, "L", 60, "LX",
@@ -31,13 +31,29 @@ public class Romans {
     }
 
     public static void outputConvertedValue(String convertedValue) {
-        // TODO Auto-generated method stub
 
     }
 
     public static String convertInput(String input) {
-        // TODO Auto-generated method stub
-        return null;
+        Integer value = Integer.parseInt(input);
+        Integer thousands = (value / 1000) * 1000;
+        Integer hundreds = (value - thousands) / 100 * 100;
+        Integer tens = (value - thousands - hundreds) / 10 * 10;
+        Integer units = (value - thousands - hundreds - tens);
+        StringBuilder result = new StringBuilder();
+        if (thousands > 0) {
+            result.append(THOUSANDS.get(thousands));
+        }
+        if (hundreds > 0) {
+            result.append(HUNDREDS.get(hundreds));
+        }
+        if (tens > 0) {
+            result.append(TENS.get(tens));
+        }
+        if (units > 0) {
+            result.append(UNITS.get(units));
+        }
+        return result.toString();
     }
 
     public static Boolean validateInput(String input) {
