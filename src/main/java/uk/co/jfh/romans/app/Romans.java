@@ -1,11 +1,16 @@
 package uk.co.jfh.romans.app;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.Map;
 
 public class Romans {
 
     private static InputStream inputStream = System.in;
+    private static OutputStream outputStream = System.out;
 
     private static final Map<Integer, String> SINGLES = Map.of(1, "I", 2, "II", 3, "III", 4, "IV", 5, "V", 6, "VI", 7,
             "VII", 8, "VIII", 9, "IX");
@@ -25,24 +30,45 @@ public class Romans {
         outputConvertedValue(convertedValue);
     }
 
-    private static void outputConvertedValue(String convertedValue) {
+    public static void outputConvertedValue(String convertedValue) {
         // TODO Auto-generated method stub
 
     }
 
-    private static String convertInput(String input) {
+    public static String convertInput(String input) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    private static Boolean validateInput(String input) {
+    public static Boolean validateInput(String input) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    private static String getUserInput() {
-        // TODO Auto-generated method stub
-        return null;
+    public static String getUserInput() {
+        String input = null;
+        try (BufferedReader consoleReader = new BufferedReader(new InputStreamReader(inputStream))) {
+            input = consoleReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return input;
+    }
+
+    public static InputStream getInputStream() {
+        return inputStream;
+    }
+
+    public static void setInputStream(InputStream inputStream) {
+        Romans.inputStream = inputStream;
+    }
+
+    public static OutputStream getOutputStream() {
+        return outputStream;
+    }
+
+    public static void setOutputStream(OutputStream outputStream) {
+        Romans.outputStream = outputStream;
     }
 
 }
