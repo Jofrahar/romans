@@ -41,8 +41,12 @@ public class Romans {
     }
 
     public static Boolean validateInput(String input) {
-        // TODO Auto-generated method stub
-        return null;
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public static String getUserInput() {

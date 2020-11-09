@@ -1,6 +1,7 @@
 package uk.co.jfh.romans.app.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -48,4 +49,13 @@ public class UserInputTest {
         assertEquals(expectedString, result);
     }
 
+    @Test
+    void testValidateNoInputFails() throws IOException {
+        assertFalse(Romans.validateInput("\n"));
+    }
+
+    @Test
+    void testValidateInvalidInputFails() throws IOException {
+        assertFalse(Romans.validateInput("Abc\n"));
+    }
 }
