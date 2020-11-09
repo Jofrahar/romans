@@ -1,7 +1,5 @@
 package uk.co.jfh.romans.app.test;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 import uk.co.jfh.romans.app.Romans;
@@ -21,7 +19,9 @@ public class UserInputTest {
 
     @Test
     void testUserInput() {
-        assertTrue(true);
+        // given
+        Romans romans = new Romans();
+        // romans.main(null);
     }
 
 }
