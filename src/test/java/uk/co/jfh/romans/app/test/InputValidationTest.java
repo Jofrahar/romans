@@ -11,12 +11,17 @@ import uk.co.jfh.romans.app.Romans;
 public class InputValidationTest {
 
     @Test
-    void testValidateNoInputFails() throws IOException {
+    void testNoInputFails() throws IOException {
         assertFalse(Romans.validateInput("\n"));
     }
 
     @Test
-    void testValidateInvalidInputFails() throws IOException {
+    void testNonNumericInputFails() throws IOException {
         assertFalse(Romans.validateInput("Abc\n"));
+    }
+
+    @Test
+    void testOutoOfRangeInputFails() throws IOException {
+        assertFalse(Romans.validateInput("12345"));
     }
 }

@@ -26,9 +26,13 @@ public class Romans {
     private static final Map<Integer, String> THOUSANDS = Map.of(1000, "M", 2000, "MM", 3000, "MMM");
 
     public static void main(String[] args) {
+        String convertedValue;
         String input = getUserInput();
-        Boolean isValid = validateInput(input);
-        String convertedValue = convertInput(input);
+        if (validateInput(input)) {
+            convertedValue = convertInput(input);
+        } else {
+            convertedValue = "Invalid input";
+        }
         outputConvertedValue(convertedValue);
     }
 
@@ -63,12 +67,16 @@ public class Romans {
     }
 
     public static Boolean validateInput(String input) {
+        int integer;
         try {
-            Integer.parseInt(input);
-            return true;
+            integer = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             return false;
         }
+        if (integer < 1 || integer > 3999) {
+            return false;
+        }
+        return true;
     }
 
     public static String getUserInput() {

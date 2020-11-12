@@ -14,20 +14,6 @@ import uk.co.jfh.romans.app.Romans;
 public class UserInputTest {
 
     @Test
-    void testEndtoEndSingleCase() throws IOException {
-        // given
-        String testString = "100\n";
-        try (InputStream inputStream = new ByteArrayInputStream(testString.getBytes(StandardCharsets.UTF_8))) {
-            // when
-            Romans.setInputStream(inputStream);
-            Romans.main(null);
-        }
-        // then
-
-        // no exceptions
-    }
-
-    @Test
     void testUserInput() throws IOException {
         // given
         String testString = "100\n";
